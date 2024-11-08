@@ -1,0 +1,17 @@
+global:
+  domain: localhost
+configs:
+  params:
+    server.insecure: true
+    server.rootpath: /argocd
+    server.basehref: /argocd
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    hostname: localhost
+    pathType: Prefix
+    path: /argocd
